@@ -1,5 +1,198 @@
+/* style.css */
+
+/* --- General Styling --- */
 body {
-  width: 100%;
-  height: 100%;
-  margin: 0;
+  font-family: sans-serif;
+  margin: 0; /* Remove default body margin */
+  padding: 0;
+  line-height: 1.6; /* Improve readability of body text */
+  color: #333;
+}
+
+/* --- Header Styling --- */
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers children horizontally */
+  padding: 20px;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+header h1 {
+  /* Deliverable 1: Align header text in the center */
+  text-align: center;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+header nav {
+  /* Deliverable 3: Center all nav links */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centers the group of nav links */
+  margin-top: 10px;
+}
+
+header nav a {
+  text-decoration: underline;
+  font-weight: normal;
+  white-space: nowrap; /* Prevent links from breaking mid-word */
+
+  /* Deliverable 3: Padding and background color */
+  padding: 10px; /* 10px top/bottom, 10px left/right */
+  background-color: #cccccc; /* Grey background */
+  color: blue; /* Dark text for contrast */
+  border-radius: 5px;
+  margin: 5px; /* Space between links */
+}
+
+header nav a:hover {
+  text-decoration: underline;
+  background-color: #b3b3b3; /* Slightly darker grey on hover */
+}
+
+/* --- Featured Property Section --- */
+#featured-property {
+  padding: 20px;
+  max-width: 960px; /* Constrain overall section width */
+  margin: 20px auto; /* Center the section itself on the page */
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+
+#featured-property figure {
+  /* Deliverable 2: Center the image */
+  text-align: center; /* This centers the image within the figure */
+  margin: 0 0 20px 0;
+}
+
+#featured-property img {
+  max-width: 100%; /* Ensure image is responsive */
+  height: auto;
+  border-radius: 5px;
+}
+
+#featured-property figcaption {
+  /* Deliverable 4: Image caption styling */
+  font-size: 0.8em; /* Shrink font size */
+  text-align: center; /* Center the caption */
+  font-style: italic;
+  color: #666;
+  margin-top: 10px;
+}
+
+#featured-property p {
+  /* Deliverable 5: Text block styling */
+  width: 800px; /* Hard width for paragraphs */
+  margin: 15px auto; /* Center paragraphs and add vertical space */
+  text-align: center; /* Center text inside paragraphs */
+  line-height: 1.6;
+  color: #555;
+  padding: 0 10px; /* A little horizontal padding to prevent text from touching edges on small screens if 800px is too wide */
+  box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+/* --- Details Section (Footer-like area) --- */
+#details {
+  padding: 30px 20px;
+  background-color:red;
+  color: black;
+  border-top: 1px solid #444;
+  /* Deliverable 6: Clearfix for floated children */
+  overflow: hidden; /* Modern way to contain floats */
+  /* OR use the traditional clearfix hack if overflow: hidden causes issues: */
+  /* &::after {
+    content: "";
+    display: table;
+    clear: both;
+  } */
+}
+
+#details > div { /* Target each direct div child within #details */
+  /* Deliverable 6: Make each div float to the left */
+  float: left;
+  width: 25%; /* Approx. 4 columns (100% / 4) - adjust based on margins */
+  box-sizing: border-box; /* Include padding/border in width */
+  padding: 0 15px; /* Add internal padding for spacing */
+  text-align: center; /* Center text within each details column */
+  margin-bottom: 20px; /* Vertical space for wrapping on smaller screens */
+}
+
+#details h3 {
+  color: black;
+  margin-bottom: 10px;
+}
+
+#details p {
+  font-size: 0.9em;
+  line-height: 1.5;
+}
+
+#details a {
+  color: blue;
+  text-decoration: underline;
+}
+
+#details a:hover {
+  text-decoration: underline;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 992px) {
+  #featured-property p {
+    width: 90%; /* Adjust paragraph width for smaller desktops/tablets */
+    max-width: 800px; /* Keep max width */
+  }
+
+  #details > div {
+    width: 50%; /* Two columns on medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 15px;
+  }
+
+  header nav a {
+    margin: 5px;
+    font-size: 0.9em;
+  }
+
+  #featured-property {
+    margin: 15px;
+    padding: 15px;
+  }
+
+  #featured-property p {
+    width: auto; /* Allow paragraphs to take full width */
+    max-width: 100%; /* Ensure full width */
+    padding: 0 5px; /* Reduce horizontal padding */
+    text-align: left; /* Text usually looks better left-aligned on very small screens */
+  }
+
+  #details > div {
+    width: 100%; /* Stack columns vertically on small screens */
+    float: none; /* Remove float for stacking */
+    text-align: center; /* Re-center text for stacked columns */
+    margin: 10px 0; /* Adjust vertical margins */
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.5em;
+  }
+
+  header nav {
+    flex-direction: column; /* Stack nav links vertically */
+    align-items: center;
+  }
+
+  header nav a {
+    margin: 5px 0;
+    width: fit-content;
+  }
 }
